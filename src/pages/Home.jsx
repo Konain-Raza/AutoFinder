@@ -15,6 +15,7 @@ const Home = () => {
       setLoading(true);
       try {
         const response = await axios.get("https://freetestapi.com/api/v1/cars");
+        setCars(response.data)
         setCategories(["All Catgories", ...new Set(response.data.map((car) => car.make))]);
         setFilteredCars(response.data);
       } catch (error) {
